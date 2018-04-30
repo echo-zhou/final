@@ -1,0 +1,37 @@
+{% extends "movies/base.html" %}
+
+{% block content %}
+
+    <div class="row">
+      {% for o in objects %}
+        {% if list_type == "Movies" %}
+          <div class="col-md-6">
+            <div class="row movie-card">
+              <div class="col-md-3">
+              <a href="https://{{ o.poster }}">
+                <img alt="movie poster" src="https://{{ o.poster }}" style="width: 100px;">
+              </a>
+            </div>
+              <div class="col-md-8 tile-info">
+                <a href="/movies/movies/{{ o.movie_id }}"><h4>{{ o.title }}</h4></a>
+                <p>Rating: {{o.rating}}</p>
+                <p>Genre: {{o.movie_genre}}</p>
+              </div>
+            </div>
+          </div>
+        {% else %}  <!--- list_type=='theaters'---->
+          <div class="col-md-6">
+          <div class="row theater-tile">
+            <a href="/movies/theaters/{{ o.th_id }}" class="theater-name col-12">
+              {{ o }}
+            </a>
+            <a href="https://www.google.com/maps/search/{{o.address}}" class="col-12"
+            target="_blank"><p>Address: {{o.address}}</p></a>
+            <p class="col-12" style="color:  white;">Phone: {{o.phone}}</p>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    
+{% endblock %}

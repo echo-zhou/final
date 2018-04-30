@@ -1,0 +1,362 @@
+
+/* ------- global css ---------- */
+/* ------- global css ---------- */
+/* ------- global css ---------- */
+
+h1 {
+   color:#38618f;
+   font-weight: 500;
+   margin-top: 60px;
+   margin-bottom: 50px;
+   font-size: 48px;
+}
+
+
+h2 {
+  color: #38618f;
+}
+
+h4 {
+  color: #38618f;
+  font-size:20px;
+  text-decoration: none;
+  margin-top: 12px;
+}
+
+
+h5 {
+   color:black;
+   font-weight: 300;
+   font-size: 24px;
+}
+
+
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+
+a:hover h1{
+  text-decoration: none;
+  color: #fd9735;
+}
+
+
+body {
+    background-color: #fff;
+}
+
+
+li {
+  list-style-type: none;
+}
+
+p{
+  margin-bottom: 0;
+}
+
+/* ------- homepage CSS ---------- */
+/* ------- homepage CSS ---------- */
+/* ------- homepage CSS ---------- */
+
+/* ------- homepage fandango title ---------- */
+
+.display-4{
+  margin:30px 0 30px 0;
+  font-weight: 500;
+}
+
+/* ------- homepage container - hot movies style  ---------- */
+
+
+.hot-movies{
+  background-color: #fd9735;
+}
+
+.hot-movies h1{
+  color: #fff;
+}
+
+
+.poster{
+  margin: auto 0;
+}
+
+
+/* ------- homepage carousel style (compiled from scss)---------- */
+
+@media (min-width: 768px) {
+  /* show 4 items */
+  .carousel-inner .active,
+  .carousel-inner .active + .carousel-item,
+  .carousel-inner .active + .carousel-item + .carousel-item,
+  .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
+    display: block;
+  }
+
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item,
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+    transition: none;
+  }
+
+  .carousel-inner .carousel-item-next,
+  .carousel-inner .carousel-item-prev {
+    position: relative;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+
+  .carousel-inner
+  .active.carousel-item
+  + .carousel-item
+  + .carousel-item
+  + .carousel-item
+  + .carousel-item{
+    position: absolute;
+    top: 0;
+    right: -33.3333%;
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+
+  /* left or forward direction */
+  .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+  .carousel-item-next.carousel-item-left + .carousel-item,
+  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+  .carousel-item-next.carousel-item-left
+  + .carousel-item
+  + .carousel-item
+  + .carousel-item
+  + .carousel-item{
+    position: relative;
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  /* farthest right hidden item must be abso position for animations */
+  .carousel-inner .carousel-item-prev.carousel-item-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+
+  /* right or prev direction */
+  .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+  .carousel-item-prev.carousel-item-right + .carousel-item,
+  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+  .carousel-item-prev.carousel-item-right
+  + .carousel-item
+  + .carousel-item
+  + .carousel-item
+  + .carousel-item {
+    position: relative;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible;
+  }
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    }
+
+.carousel{
+  width: 100%；
+  margin-bottom:20px;
+}
+
+.carousel-inner{
+  width: 70%;
+  padding-bottom: 30px;
+}
+
+      /* ------- homepage carousel - movie-card style ---------- */
+
+      .movie-card-vertical{
+        text-align: center;
+        margin:5px 0px 5px 0px;
+        padding: 5px;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+      }
+
+      .movie-card-vertical{
+        height: 300px;
+        min-width: 330px;
+        background-color: #fff;
+      }
+
+      .movie-card-vertical img{
+        max-height: 148px;
+        margin-top: 10%;
+      }
+
+      .movie-card-vertical .tile-info{
+        margin-bottom: 5%;
+      }
+
+      /* ------- homepage carousel - button style ---------- */
+      .btn{
+        margin-bottom: 30px;
+      }
+
+      .btn h5{
+        color: white;
+        padding: 20px 0px 10px 0px;
+      }
+
+      .btn-primary{
+        background-color: #38618f;
+        border-color: #38618f;
+      }
+
+      .btn-primary:hover{
+        background-color: #38618f;
+        border-color: #fff;
+        border-width: 4px;
+        margin-bottom: 23px;
+      }
+
+/* ------- homepage map style  ---------- */
+
+.theater .card{
+  background-color: #fff;
+  width: 80%;
+}
+
+.theater .btn{
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+.theater .btn-primary{
+  background-color: #fd9735;
+  border-color: #fd9735;
+  border:none;
+}
+
+.theater .btn-primary:hover{
+  background-color: #ff6745;
+  border-color: inherit;
+  border: none;
+  margin-bottom: 20px;
+}
+
+
+.map{
+  margin: auto;
+  margin-bottom: 25px;
+  width: 60%;
+}
+
+
+#content a{
+  color: #38618f;
+}
+
+
+/* ------- homepage barchart style  ---------- */
+
+.data-wrap{
+  text-align: center;
+  background-color: rgba(199,197,184,0.5);
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.bar_container{
+  margin-top: 130px;
+}
+
+
+/* ------- movie-list page CSS ---------- */
+/* ------- movie-list page CSS ---------- */
+/* ------- movie-list page CSS ---------- */
+
+
+.movie-card{
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+        padding: 10px;
+        height: 175px;
+        font-size: 15px;
+        margin: 0px 10px 10px 20px;
+    }
+.movie-card img{
+        vertical-align: middle;
+  }
+
+.movie-card h4{
+  font-size: 32px;
+}
+
+/* ------- theater-list page CSS ---------- */
+/* ------- theater-list page CSS ---------- */
+/* ------- theater-list page CSS ---------- */
+
+
+#theater-header h2{
+  color: black;
+}
+
+.theater-tile {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  height: 200px;
+  margin: 5px 5px;
+  background-color: #ff6745;
+}
+
+.theater-tile:hover{
+  background-color: #fd9735;
+}
+
+.theater-tile a {
+  color:white ;
+}
+
+.theater-tile a.theater-name {
+  color: white;
+  font-size: 32px;
+  font-weight: 500;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+.theater-tile a:hover {
+  color: white;
+}
+
+/* ------- theater-detail page CSS ---------- */
+/* ------- theater-detail page CSS ---------- */
+/* ------- theater-detail page CSS ---------- */
+
+
+#detail-header {
+  color: white;
+  background-color: #fd9735;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.show-title{
+  margin: 40px 0 20px 0;
+}
+
+.movie-wrapper{
+  border: 1px lightgrey;
+  border-radius: 5px;
+}

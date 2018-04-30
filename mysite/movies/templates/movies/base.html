@@ -1,0 +1,35 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fundango</title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    {% block css %}
+        {{ block.super }}
+        <link rel="stylesheet" href="{% static "movies/css/home.css" %}">
+    {% endblock %}
+
+  </head>
+  <body>
+    {% block body %}
+        <div class="container-fluid">
+            {% block header %}
+                <div class="row">
+                    <div class="col-12">
+                        <a href="/movies/"><h1 class="display-4">Fundango!</h1></a>
+                    </div>
+                </div>
+            {% endblock %}
+
+            {% block content %}{% endblock %}
+        </div>
+    {% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    {% block script %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,46 @@
+{% extends "movies/base.html" %}
+
+
+{% block content %}
+<div class="row">
+  <div id="detail-header" class="col-md-4">
+    <div class="col-md-12">
+    <h2 style="text-align:left; margin-left:40px; color:white; padding-top:10px;">{{ name }}</h2>
+    </div>
+    <div class="col-md-12">
+      <ul style="text-align:left;">
+        <li>Address {{ address }}</li>
+        <li>Phone {{ phone }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-12 show-title">
+      <h2>Now showing at {{name}}:</h2>
+  </div>
+</div>
+
+  <div class="row">
+    {% for o in movies %}
+    <div class="col-md-4 movie-card">
+      <div class="row movie-tile">
+        <div class="col-md-3">
+        <a href="https://{{ o.poster }}">
+          <img alt="movie poster" src="https://{{ o.poster }}" style="width: 100px;">
+        </a>
+       </div>
+        <div class="col-md-8 tile-info">
+          <a href="/movies/movies/{{ o.movie_id }}"><h4>{{ o.title }}</h4></a>
+          <p>Rating: {{o.rating}}</p>
+          <p>Genre: {{o.movie_genre}}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

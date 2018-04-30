@@ -1,0 +1,147 @@
+{% extends "movies/base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="row hot-movies">
+<div class="container-fluid">
+  <h1 class="col-md-12" style="text-align:center">What's hot </h1>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner row mx-auto">
+  {% for o in objects %}
+    {% if forloop.first %}
+    <div class="carousel-item col-md-3 active">
+      <div class="row movie-card-vertical">
+        <div class="col-md-12">
+        <a href="https://{{ o.poster }}">
+          <img alt="movie poster" src="https://{{ o.poster }}" style="width: 100px;">
+        </a>
+      </div>
+        <div class="col-md-12 tile-info">
+          <a href="/movies/movies/{{ o.movie_id }}"><h4>{{ o.title }}</h4></a>
+          <p>Rating: {{o.rating}}</p>
+          <p>Genre: {{o.movie_genre}}</p>
+        </div>
+      </div>
+    </div>
+    {% else %}
+        <div class="carousel-item col-md-3">
+        <div class="row movie-card-vertical">
+          <div class="col-md-12">
+          <a href="https://{{ o.poster }}">
+            <img alt="movie poster" src="https://{{ o.poster }}" style="width: 100px;">
+          </a>
+        </div>
+          <div class="col-md-12 tile-info">
+            <a href="/movies/movies/{{ o.movie_id }}"><h4>{{ o.title }}</h4></a>
+            <p>Rating: {{o.rating}}</p>
+            <p>Genre: {{o.movie_genre}}</p>
+          </div>
+        </div>
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+   <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+</div>
+
+
+<div class="row col-md-auto">
+<button type="button" class="btn btn-primary btn-lg col-md-4 offset-md-4">
+
+        <h5>
+            See all
+            <a href="{% url "movies:movies-list" %}">{{ movies.count }} </a>
+            movies
+        </h5>
+
+</button>
+</div>
+
+</div>
+</div>
+
+
+
+<div class='container-fluid theater'>
+<h1 style="text-align:center;"> Theaters</h1>
+    <div class="row map-wrap">
+        <div class="col-md-8 offset-md-2 card">
+          <div class="card-title">
+          <button type="button" class="btn btn-primary btn-lg col-md-4 offset-md-4">
+                    <h5 style='text-align:center;' >
+                        See all
+                        <a href="{% url "movies:theaters-list" %}">{{ theaters.count }} </a>
+                        Theaters
+                    </h5>
+          </button>
+          </div>
+          <div class="card-img">
+
+            <div class="map" id="map" style="height: 600px; min-width: 1000px;">this is the place of the map</div>
+
+          </div>
+        </div>
+    </div>
+
+</div>
+
+<div class='data-wrap row'>
+<div class="row container-fluid">
+    <div class="col-md-7 bar_container">
+      <h2>
+        Total number of movies playing in each city
+      </h2>
+      <div id="barchart"></div>
+      </div>
+
+    <div class="col-md-5 pie_container">
+      <h2 class="col-12" style="margin-bottom: -40px;margin-top: 70px;">
+        Compare number of theaters in 3 cities
+      </h2>
+      <div id="movie-pie"></div>
+      <div class='row indicators' style="margin-bottom:-50px;">
+        <div class="col-2"></div>
+        <svg class=' col-1 pie-indicator'>
+          <rect width="30" height="30" style="fill:#38618f;" />
+        </svg>
+        <p class="col-2" style="text-align:left;">Chapel Hill </p>
+
+        <svg class=' col-1 pie-indicator'>
+          <rect width="30" height="30" style="fill:#fd9735;" />
+        </svg>
+        <p class="col-2" style="text-align:left;">Durham </p>
+
+        <svg class=' col-1 pie-indicator'>
+          <rect width="30" height="30" style="fill:#ff6745;" />
+        </svg>
+        <p class="col-2" style="text-align:left;">Raleigh </p>
+
+      </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+
+
+{% block script %}
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-TLa0eIrhLlxQ7N4OmV8M9DW2LTUVNyM&callback=initMap">
+  </script>
+<script src="{% static "movies/js/home.js" %}"></script>
+<script src="{% static "movies/js/d3.js" %}"></script>
+<script src="{% static "movies/js/barchart.js" %}"></script>
+
+
+{% endblock %}
